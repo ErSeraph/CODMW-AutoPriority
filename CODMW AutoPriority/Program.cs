@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace CODMW_AutoPriority
 {
-    class Program
-    {
+	class Program
+	{
 		static async Task Main(string[] args)
 		{
-            if (anotherIstance()) return;
-            
+			if (anotherIstance()) return;
+
 			[DllImport("kernel32.dll")]
 			static extern IntPtr GetConsoleWindow();
 			[DllImport("user32.dll")]
@@ -18,7 +18,7 @@ namespace CODMW_AutoPriority
 			var handle = GetConsoleWindow();
 			ShowWindow(handle, 0);
 
-			while(true)
+			while (true)
 			{
 				{
 					Process[] game = Process.GetProcessesByName("ModernWarfare");
@@ -42,9 +42,9 @@ namespace CODMW_AutoPriority
 		}
 
 		private static Boolean anotherIstance()
-        {
+		{
 			Process[] p = Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName);
 			return p.Length > 1;
-        }
+		}
 	}
 }
